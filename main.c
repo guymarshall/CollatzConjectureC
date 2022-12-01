@@ -1,6 +1,24 @@
 #include <stdio.h>
 
-int collatz(int number);
+int collatz(int number)
+{
+	int counter = 0;
+	while (number > 1)
+	{
+		counter++;
+		if (number % 2 == 0)
+		{
+			number = number / 2;
+		}
+		else
+		{
+			number = (3 * number) + 1;
+		}
+	}
+
+	return counter;
+}
+
 
 int main()
 {
@@ -23,23 +41,4 @@ int main()
 	{
 		printf("%i: %i\n", number, collatz(number));
 	}
-}
-
-int collatz(int number)
-{
-	int counter = 0;
-	while (number > 1)
-	{
-		counter++;
-		if (number % 2 == 0)
-		{
-			number = number / 2;
-		}
-		else
-		{
-			number = (3 * number) + 1;
-		}
-	}
-
-	return counter;
 }
